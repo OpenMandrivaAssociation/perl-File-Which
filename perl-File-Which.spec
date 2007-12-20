@@ -15,6 +15,7 @@ Source:     http://www.cpan.org/modules/by-module/File/%{module}-%{version}.tar.
 BuildRequires:	perl-devel
 %endif
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 File::Which was created to be able to get the paths to executable programs on
