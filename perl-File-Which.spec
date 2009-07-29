@@ -1,21 +1,21 @@
-%define	module	File-Which
-%define name	perl-%{module}
-%define	version	0.05
-%define	release	%mkrel 3
+%define	upstream_name	 File-Which
+%define	upstream_version 0.05
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Portable implementation of the `which' utility
+License:	GPL+ or Artistic
 Group:		Development/Perl
-License:	GPL or Artistic
-Url:		http://search.cpan.org/dist/%{module}/
-Source:     http://www.cpan.org/modules/by-module/File/%{module}-%{version}.tar.bz2
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:    http://www.cpan.org/modules/by-module/File/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 File::Which was created to be able to get the paths to executable programs on
@@ -33,7 +33,7 @@ These slurp/spew subs work for files, pipes and sockets, and stdio,
 pseudo-files, and DATA.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
