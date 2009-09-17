@@ -14,6 +14,8 @@ Source0:    http://www.cpan.org/modules/by-module/File/%{upstream_name}-%{upstre
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
+BuildRequires: perl(Test::Script)
+
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
