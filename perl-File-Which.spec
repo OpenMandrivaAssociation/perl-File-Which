@@ -43,7 +43,5 @@ make test
 
 %files
 %doc README Changes
-%{_bindir}/pwhich
 %{perl_vendorlib}/File
-%{_mandir}/man1/*
 %{_mandir}/man3*/*
