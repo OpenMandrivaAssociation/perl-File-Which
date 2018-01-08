@@ -1,10 +1,10 @@
 %define	modname	File-Which
-%define	modver	1.09
+%define	modver	1.22
 
 Summary:	Portable implementation of the `which' utility
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	17
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}/
@@ -47,4 +47,3 @@ make test
 %{perl_vendorlib}/File
 %{_mandir}/man1/*
 %{_mandir}/man3*/*
-
