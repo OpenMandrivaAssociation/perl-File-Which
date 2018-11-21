@@ -12,6 +12,7 @@ Source0:	http://www.cpan.org/modules/by-module/File/%{modname}-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl-devel
 BuildRequires:	perl(Test::Script)
+BuildRequires:	perl(Env)
 
 %description
 File::Which was created to be able to get the paths to executable programs on
@@ -29,17 +30,17 @@ These slurp/spew subs work for files, pipes and sockets, and stdio,
 pseudo-files, and DATA.
 
 %prep
-%setup -qn %{modname}-%{modver}
+%autosetup -n %{modname}-%{modver} -p1
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
-%make
+%__perl Makefile.PL INSTALLDIRS=vendor OPTIMIZE="%{optflags}"
+%make_build
 
 %check
 make test
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc README Changes
