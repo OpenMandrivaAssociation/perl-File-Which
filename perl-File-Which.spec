@@ -1,10 +1,10 @@
 %define	modname	File-Which
-%define	modver	1.22
+%define	modver	1.27
 
 Summary:	Portable implementation of the `which' utility
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	4
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://metacpan.org/pod/File::Which
