@@ -1,18 +1,19 @@
 %define	modname	File-Which
-%define	modver	1.27
 
 Summary:	Portable implementation of the `which' utility
 Name:		perl-%{modname}
-Version:	%perl_convert_version %{modver}
-Release:	2
+Version:	1.27
+Release:	3
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/pod/File::Which
-Source0:	http://www.cpan.org/modules/by-module/File/%{modname}-%{modver}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/File/%{modname}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl-devel
 BuildRequires:	perl(Test::Script)
 BuildRequires:	perl(Env)
+# Workaround for weird perl versioning (27 == 270)
+Provides:	perl(File::Which) = %{version}0.0
 
 %description
 File::Which was created to be able to get the paths to executable programs on
@@ -30,7 +31,7 @@ These slurp/spew subs work for files, pipes and sockets, and stdio,
 pseudo-files, and DATA.
 
 %prep
-%autosetup -n %{modname}-%{modver} -p1
+%autosetup -n %{modname}-%{version} -p1
 
 %build
 %__perl Makefile.PL INSTALLDIRS=vendor OPTIMIZE="%{optflags}"
